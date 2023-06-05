@@ -36,7 +36,7 @@ D	_includes/css/callouts.scss.liquid
 M	_includes/css/just-the-docs.scss.liquid
 M	_includes/footer_custom.html
 M	_includes/head.html
-A	_includes/head_fonts.html
+M	_includes/head_fonts.html
 D	_includes/icons/code_copy.html
 D	_includes/icons/document.html
 D	_includes/icons/expand.html
@@ -103,6 +103,7 @@ M	assets/js/just-the-docs.js
 M	assets/js/vendor/lunr.min.js
 M	assets/js/zzzz-search-data.json
 A	assets/scripts/copyCode.js
+D	changes.txt
 M	docs/configuration.md
 M	docs/customization.md
 M	docs/index-test.md
