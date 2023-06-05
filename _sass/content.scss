@@ -19,6 +19,7 @@
   a {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   ul,
@@ -43,8 +44,9 @@
         position: absolute;
         top: 0.2em;
         left: -1.6em;
-        color: $grey-dk-000;
-        content: counter(step-counter);
+        //      color: $grey-dk-000;	
+        font-weight: 500;	
+        content: counter(step-counter) ".";
         counter-increment: step-counter;
         @include fs-3;
 
@@ -58,7 +60,7 @@
 
         > li {
           &::before {
-            content: counter(sub-counter, lower-alpha);
+            content: counter(sub-counter, lower-alpha) ".";	
             counter-increment: sub-counter;
           }
         }
@@ -79,6 +81,10 @@
     }
   }
 
+  .task-list {	
+    padding-left: 0;	
+  }
+
   .task-list-item {
     &::before {
       content: "";
@@ -97,6 +103,7 @@
   }
 
   h1:first-of-type {
+    font-family: $header-font-family;
     margin-top: 0.5em;
   }
 
@@ -207,8 +214,12 @@
   h6,
   #toctitle {
     position: relative;
-    margin-top: 1.5em;
+    //margin-top: 1.5em;
     margin-bottom: 0.25em;
+    padding-bottom: 6px;	
+    &:first-child {	
+      margin-top: $sp-2;	
+    }
 
     + table,
     + .table-wrapper,

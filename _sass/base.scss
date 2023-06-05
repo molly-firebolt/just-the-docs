@@ -5,6 +5,13 @@
   box-sizing: border-box;
 }
 
+
+::selection {	
+  color: $white;	
+  background: $link-color;	
+}
+
+
 html {
   @include fs-4;
 
@@ -35,18 +42,41 @@ noscript .table-wrapper {
   margin-top: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-#toctitle {
-  margin-top: 0;
-  margin-bottom: 1em;
+h1 {
+  font-family: $header-font-family;
+  color: $black;
+}
+
+h2 {
+  margin-top: 2em;
+  font-family: $header-font-family;
+  color: $black;
+}
+
+h3 {
+  margin-top: 2em;
+  font-family: $header-font-family;
+  color: $black;
+}
+
+h4 {
+  margin-top: 2em;
+  font-family: $header-font-family;
+  color: $black;
+}
+
+h5 {
+  margin-top: 2em;
+  font-family: $header-font-family;
+  color: $black;
+}
+
+h6 {
+  margin-top: 2em;
+  // margin-bottom: 1em;
   font-weight: 500;
   line-height: $body-heading-line-height;
-  color: $body-heading-color;
+  color: $black;
 }
 
 p {
@@ -60,12 +90,18 @@ a {
 }
 
 a:not([class]) {
-  text-decoration: underline;
-  text-decoration-color: $border-color;
-  text-underline-offset: 2px;
+  text-decoration: none;
+  background-image: linear-gradient($border-color 0%, $border-color 100%);
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 1px 1px;
 
   &:hover {
-    text-decoration-color: rgba($link-color, 0.45);
+    background-image: linear-gradient(
+      rgba($link-color, 0.45) 0%,
+      rgba($link-color, 0.45) 100%
+    );
+    background-size: 1px 1px;
   }
 }
 
