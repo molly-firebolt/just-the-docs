@@ -5,9 +5,55 @@ layout: default
 {{ content }}
 
  <!-- home page features -->
-  <div class="row">
+  <!-- <div class="row">
     <div class="column"><div class="columnimg"></div></div>
     <div class="column"><div class="columnimg"></div></div>
     <div class="column"><div class="columnimg"></div></div>
-  </div>
+  </div> -->
+
+  <section class="home-page-features">
+    <div class="container">
+      <!-- {% if page.feature_rows %} -->
+      <div class="row">
+        {% for f_row in page.feature_rows %}
+        <!-- TODO use animate.css to animate on hover -->
+        <div class="column">
+          <div class="card">
+            <a href="{{ f_row.url | relative_url }}"></a>
+            {% if f_row.img_path %}
+              {% capture img_path %}
+              {{ '/assets/images/' | relative_url | append: f_row.img_path }}
+              {% endcapture %}
+            {% endif %}
+
+            {% if f_row.img_alt %}
+              {% capture img_alt %}
+              {{ f_row.img_alt | default: 'Feature image' }}
+              {% endcapture %}
+            {% endif %}
+            
+            <div class="card-body">
+              {% if img_path %}
+                <img class="img-fluid" src="{{ img_path | strip }}" alt="{{ img_alt | strip }}">
+              {% endif %}
+            </div>
+        </a>
+
+            <div class="card-body">
+              <a href="{{ f_row.url | relative_url }}">
+                <h3 class="card-title">
+                  {{ f_row.title }}
+                </h3>
+              <div class="card-text">{{ f_row.excerpt }}</div>
+              <br>
+            </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% endif%}
+    </div>
+  </section>
+
+
 
