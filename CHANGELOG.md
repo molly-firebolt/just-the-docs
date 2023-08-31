@@ -15,24 +15,172 @@ The project underwent a major maintenance shift in March 2022.
 {: .note }
 This website is built from the `HEAD` of the `main` branch of the theme repository.
 
-{: .warning }
-This website includes docs for some new features that are not available in `v0.5.0`!
-
 Code changes to `main` that are *not* in the latest release:
 
+- Fixed: Windows emoji font fallback by [@flanakin] in [#1337]
+
+[#1337]: https://github.com/just-the-docs/just-the-docs/pull/1337
+
+### New Contributors
+
+- [@flanakin] made their first contribution in [#1337]
+
+[@flanakin]: https://github.com/flanakin
+
+## Release v0.6.1
+
+Hi all, this is a small patch release that only includes one change: resolving a bug introduced in 0.6.0 that causes a JS error for pages excluded from navigation.
+
+### Bugfixes
+
+- Fixed: JS error for pages excluded from navigation by [@pdmosses] in [#1332]
+
+[#1332]: https://github.com/just-the-docs/just-the-docs/pull/1332
+
+## Release v0.6.0
+
+Hi all, this is a minor release that introduces performance improvements for build times on large sites, correctly sets the `color-scheme` property, and fixes invalid HTML. However, it introduces some potentially-breaking *internal* changes to undocumented features of the theme.
+
+### Migrating to `v0.6.0`
+
+**Migration**: users will need to migrate if:
+
+- they have an existing `_includes` file named `favicon.html`, `head_nav.html`, or `css/activation.scss.liquid`
+- they have code that refers to `#main-content-wrap`
+- they override the default `light` theme's code, or the theme-loading logic
+- they have different favicons for different pages
+
+For more, refer to the [migration guide](https://just-the-docs.com/MIGRATION/).
+
+### Using Release `v0.6.0`
+
+Users who have not pinned the theme version will be **automatically upgraded to `v0.6.0` the next time they build their site**.
+
+To use this release explicitly as a remote theme:
+
+```yml
+remote_theme: just-the-docs/just-the-docs@v0.6.0
+```
+
+To use this version explicitly as a gem-based theme, pin the version in your `Gemfile` and re-run `bundle install` or `bundle update just-the-docs`:
+
+```ruby
+gem "just-the-docs", "0.6.0"
+```
+
+To use and pin a previous version of the theme, replace the `0.6.0` with the desired release tag.
+
+### New Features and Bugfixes
+
+- Added: `$color-scheme` theme variable to specify `color-scheme` for `:root` by [@sigv] in [#1280]
+- Fixed: build times for large sites by [@pdmosses] in [#1244]
+- Fixed: missing closing `</button>` tag in `sidebar.html` by [@mattxwang] in [#1304]
+- Fixed: removed duplicate `#main-content-wrap` minimal and default layouts by [@mattxwang] in [#1305]
+
+### Documentation
+
+{: .warning }
+The theme docs are unversioned, and already reflect the above changes.
+
+Docs changes:
+
+- A [footnote]({% link docs/configuration.md %}#fn:js-disabled) in the configuration docs explains how disabling JavaScript affects the display of navigation links when browsing folded collections.
+- Invalid HTML has been removed from most documentation examples.
+
+### New Contributors
+
+- [@sigv] made their first contribution in [#1280]
+
+[@sigv]: https://github.com/sigv
+[#1244]: https://github.com/just-the-docs/just-the-docs/pull/1244
+[#1280]: https://github.com/just-the-docs/just-the-docs/pull/1280
+[#1304]: https://github.com/just-the-docs/just-the-docs/pull/1304
+[#1305]: https://github.com/just-the-docs/just-the-docs/pull/1305
+
+## Release v0.5.4
+
+Hi all, this is a small patch release that only includes one change: fixing a style clash between Mermaid's labels and Just the Docs' labels.
+
+*Note: for subsequent patch releases, we will omit migration instructions (for brevity). In all cases, immediate migration should be backwards-compatible. Refer to previous major or minor update instructions for more information.*
+
+### Bugfixes
+
+- Fixed: Mermaid labels inheriting theme `.label` styling by [@mattxwang] in [#1278]
+
+[#1278]: https://github.com/just-the-docs/just-the-docs/pull/1278
+
+## Release v0.5.3
+
+Hi all, this is a minor patch release that only includes one change: changing all text-based CSS properties to use `rem` instead of hard-coded `px` values. This has two effects:
+
+1. All deprecation warnings are now fixed on build; you should now get a clean build with `jekyll build`.
+2. We have **deprecated the `$root-font-size` SCSS variable**. We will remove it in an upcoming release of the theme.
+
+If you use the stock Just the Docs theme, this release should have no impact on your final built site. If you change the `$root-font-size` SCSS variable, you might experience light layout shifts.
+
+### Using Release `v0.5.3`
+
+Users who have not pinned the theme version will be **automatically upgraded to `v0.5.3` the next time they build their site**.
+
+To use this release explicitly as a remote theme:
+
+```yml
+remote_theme: just-the-docs/just-the-docs@v0.5.3
+```
+
+To use this version explicitly as a gem-based theme, pin the version in your `Gemfile` and re-run `bundle install` or `bundle update just-the-docs`:
+
+```ruby
+gem "just-the-docs", "0.5.3"
+```
+
+To use and pin a previous version of the theme, replace the `0.5.3` with the desired release tag.
+
+### Bugfixes
+
+- Fixed: font-size scaling for text-related CSS properties by using `rem` instead of fixed `px` values; deprecate `$root-font-size` by [@mattxwang] in [#1169]
+
+[#1169]: https://github.com/just-the-docs/just-the-docs/pull/1169
+
+## Release v0.5.2
+
+Hi all, this is a minor patch release that mostly focuses on accessibility. Since we follow semantic versioning, this should be a smooth upgrade with no breaking changes.
+
+In addition, the theme docs website has a new canonical URL: <https://just-the-docs.com>. We've also retroactively published the theme docs website for version `v0.3.3` at <https://v0-3-3-docs.just-the-docs.com/>. Thank you to our GitHub sponsors for funding our domain name!
+
+### Using Release `v0.5.2`
+
+Users who have not pinned the theme version will be **automatically upgraded to `v0.5.2` the next time they build their site**.
+
+To use this release explicitly as a remote theme:
+
+```yml
+remote_theme: just-the-docs/just-the-docs@v0.5.2
+```
+
+To use this version explicitly as a gem-based theme, pin the version in your `Gemfile` and re-run `bundle install` or `bundle update just-the-docs`:
+
+```ruby
+gem "just-the-docs", "0.5.2"
+```
+
+To use and pin a previous version of the theme, replace the `0.5.2` with the desired release tag.
+
+### Bugfixes
+
 - Fixed: liquid variable leakage in navigation components by [@pdmosses] in [#1243]
-- Fixed: ARIA roles and labels to search, header, logo, mobile menu button, and main content by [@joelhawksley] in [#1259]
+- Fixed: ARIA roles and labels for search, header, logo, mobile menu button, and main content by [@joelhawksley] in [#1259]
+- Fixed: ARIA labels for all anchors with `href="#"`; adds `aria-pressed` information for toggles by [@mattxwang] in [#1262]
 
-Docs changes in `main` that are *not* in the latest release:
+### New Contributors
 
-- N/A
+- [@joelhawksley] made their first contribution in [#1259]
 
 [@joelhawksley]: https://github.com/joelhawksley
 
 [#1243]: https://github.com/just-the-docs/just-the-docs/pull/1243
 [#1259]: https://github.com/just-the-docs/just-the-docs/pull/1259
-
-The theme docs website has a new canonical URL: <https://just-the-docs.com>. We've also retroactively published the theme docs website for version `v0.3.3` at <https://v0-3-3-docs.just-the-docs.com/>.
+[#1262]: https://github.com/just-the-docs/just-the-docs/pull/1262
 
 ## Release v0.5.1
 
