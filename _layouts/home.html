@@ -2,22 +2,20 @@
 layout: default
 ---
 
-{{ content }}
 
- <!-- home page features -->
-  <!-- <div class="row">
-    <div class="column"><div class="columnimg"></div></div>
-    <div class="column"><div class="columnimg"></div></div>
-    <div class="column"><div class="columnimg"></div></div>
-  </div> -->
+<div class="home-page">
+            {{ content }}
 
+</div>
+
+  <!-- home page features -->
   <section class="home-page-features">
     <div class="container">
       <!-- {% if page.feature_rows %} -->
-      <div class="row">
+      <!-- <div class="row"> -->
         {% for f_row in page.feature_rows %}
         <!-- TODO use animate.css to animate on hover -->
-        <div class="column">
+        <!-- <div class="column"> -->
           <div class="card">
             <a href="{{ f_row.url | relative_url }}"></a>
             {% if f_row.img_path %}
@@ -50,10 +48,9 @@ layout: default
             </div>
           </div>
         {% endfor %}
-      </div>
+      <!-- </div> -->
       {% endif%}
     </div>
   </section>
-
 
 

@@ -1,24 +1,19 @@
+//
 // Base element style overrides
-// stylelint-disable selector-no-type, selector-max-type, selector-max-specificity, selector-max-id
-
-:root {
-  color-scheme: $color-scheme;
-}
+//
+// stylelint-disable selector-no-type, selector-max-type
 
 * {
   box-sizing: border-box;
 }
 
-
-::selection {	
-  color: $white;	
-  background: $link-color;	
+::selection {
+  color: $white;
+  background: $link-color;
 }
-
 
 html {
   @include fs-4;
-
   scroll-behavior: smooth;
 }
 
@@ -28,7 +23,6 @@ body {
   line-height: $body-line-height;
   color: $body-text-color;
   background-color: $body-background-color;
-  overflow-wrap: break-word;
 }
 
 ol,
@@ -135,15 +129,4 @@ hr {
   margin: $sp-6 0;
   background-color: $border-color;
   border: 0;
-}
-
-// adds a GitHub-style sidebar to blockquotes
-blockquote {
-  margin: 10px 0;
-
-  // resets user-agent stylesheets for blockquotes
-  margin-block-start: 0;
-  margin-inline-start: 0;
-  padding-left: 1rem;
-  border-left: 3px solid $border-color;
 }

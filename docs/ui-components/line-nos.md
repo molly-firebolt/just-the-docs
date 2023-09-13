@@ -103,27 +103,13 @@ end
 {% include fix_linenos.html code=code %}
 {% assign code = nil %}
 
-Narrow code stays close to the line numbers:
-
-{% capture code %}
-{% highlight ruby linenos %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
-{% endcapture %}
-{% include fix_linenos.html code=code %}
-{% assign code = nil %}
-
-{: .warning }
-The following generates **incorrect** and **invalid** HTML. It should not be used as a positive example; the improper layout (with the broken HTML tags) is intentional.
-
-❌ With the compression options used for the theme docs, the following example illustrates
+❌ With the default configuration options, the following example illustrates
 the **incorrect** formatting arising from the incompatibility of HTML compression
 and the non-conforming HTML produced by Jekyll for line numbers:
 
 {% highlight ruby linenos %}
-def foo
-  puts 'foo'
+# Ruby code with syntax highlighting and unfixed line numbers using Liquid
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
 end
 {% endhighlight %}
